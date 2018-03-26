@@ -8,24 +8,24 @@ int mouseclick();
 int draw(int , int ,char , int);
 int main()
 {
-	DWORD windowh = GetSystemMetrics(SM_CXSCREEN);
-	DWORD windoww = GetSystemMetrics(SM_CYSCREEN);
-	initwindow(windowh-600,windoww,"graphics editor by naren and sajan",-3,-3); //to display the window
-	windowform(); //to display the form of the window
-	mouseclick();
+	DWORD windowh = GetSystemMetrics(SM_CXSCREEN);  //to read the screen width
+	DWORD windoww = GetSystemMetrics(SM_CYSCREEN);  //to read the screen height
+	initwindow(windowh-600,windoww,"graphics editor by naren and sajan",-3,-3);  //to display the window
+	windowform();    //to display the form on the window
+	mouseclick();   //to detect the mouseclick on the output window
 	getch();
 	delay(5000);
 }
 
 int windowform()
 {
-	DWORD windoww = GetSystemMetrics(SM_CXSCREEN);
+	DWORD windoww = GetSystemMetrics(SM_CXSCREEN);    //windoww and windowh variables
 	DWORD windowh = GetSystemMetrics(SM_CYSCREEN);
 	int i,j;
 		//start building menu
 	setbkcolor(10); //setting background color to light green
 	setcolor(0); //setting the color of the text of the area of writting to balck
-	settextstyle(10,HORIZ_DIR,2);
+	settextstyle(10,HORIZ_DIR,2);  //text style
 	outtextxy(1,1,"Open File");
 	bar(80,50,80,50); // bar for the text to be displayed
 	
@@ -80,8 +80,8 @@ int windowform()
 	
 	setcolor(15);
 	setfillstyle(SOLID_FILL,15);
-	rectangle(120,50,windoww-100,windowh-100);
-	floodfill(200,400,15);
+	rectangle(120,50,windoww-100,windowh-100);   //drawing area
+	floodfill(200,400,15);  //filling with white color
 }
 
 
@@ -149,7 +149,7 @@ int mouseclick()
 					printf("eraser");
 				}
 				
-				else if(xc>890 && xc<950)
+				else if(xc>890 && xc<950)  //exit command
 				{
 					setcolor(9);
 					setbkcolor(4);
